@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ShopView</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    body{
+    overflow-x: hidden;
+    
+  }
+  </style>
+  
+</head>
+<body>
+
+<div class="container">
+ 
+  <h2 class="text-center">Orders Placed</h2>
+  <p class="text-center">Check the products and orders place by the farmers for your product. </p>   
+  
+            <h4 class="text-center"><em>Total: {{farmerbuyorder|length}}</em></h4>         
+           
+  <table class="table-center table-bordered text-center">
+    <thead>
+      <tr class="info">
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Country</th>
+        <th>State</th>
+        <th>City/Town/Village</th>
+        <th>Full Address</th>
+        <th>Pin-Code</th>
+        <th>Phone Number</th>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>How many do you need?</th>
+        <th>Any Message for seller?</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for orders in farmerbuyorder %}
+      <tr>
+          <td>{{orders.firstname}}</td>
+          <td>{{orders.lastname}}</td>
+          <td>{{orders.country}}</td>
+          <td>{{orders.state}}</td>
+          <td>{{orders.city}}</td>
+          <td>{{orders.address}}</td>
+          <td>{{orders.pin}}</td>
+          <td>{{orders.phone}}</td>
+          <td>{{orders.productname}}</td>
+          <td>{{orders.productID}}</td>
+          <td>{{orders.quantity}}</td>
+          <td>{{orders.msg}}</td>
+          
+          
+      </tr>
+  {% endfor%}
+    </tbody>
+  </table>
+
+</div>
+</body>
+
+</html>

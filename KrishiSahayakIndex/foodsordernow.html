@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    
+    <title>Order Now</title>
+    <style>
+        
+    @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    nav {
+      display: flex;
+      height: 80px;
+      width: 100%;
+      background: #0c0c0c;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 50px 0 100px;
+
+      flex-wrap: wrap;
+    }
+
+    nav .logo {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 600;
+      margin-left: -80px;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 5px;
+    }
+
+    nav ul li a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 15px;
+      border-radius: 5px;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: #111;
+      background: #fff;
+    }
+
+    nav .menu-btn i {
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      display: none;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    @media (max-width: 1000px) {
+      nav {
+        padding: 0 40px 0 50px;
+      }
+    }
+
+    @media (max-width: 920px) {
+      nav .menu-btn i {
+        display: block;
+      }
+
+      #click:checked~.menu-btn i:before {
+        content: "\f00d";
+      }
+
+      nav ul {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        background: #111;
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        display: block;
+        transition: all 0.3s ease;
+      }
+
+      #click:checked~ul {
+        left: 0;
+      }
+
+      nav ul li {
+        width: 100%;
+        margin: 40px 0;
+      }
+
+      nav ul li a {
+        width: 100%;
+        margin-left: -100%;
+        display: block;
+        font-size: 20px;
+        transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      #click:checked~ul li a {
+        margin-left: 0px;
+      }
+
+      nav ul li a.active,
+      nav ul li a:hover {
+        background: none;
+        color: cyan;
+      }
+    }
+
+
+
+body{
+  background-color: rgb(22, 123, 240);
+}
+
+
+
+/* STYLES SPECIFIC TO FOOTER  */
+.footer {
+            width: 100%;
+            position: relative;
+            height: auto;
+            background-color: #070617;
+            margin-top: 20px;
+        }
+
+        .footer .col {
+            width: 190px;
+            height: auto;
+            float: left;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            padding: 0px 20px 20px 20px;
+        }
+
+        .footer .col h1 {
+            margin: 0;
+            padding: 0;
+            font-family: inherit;
+            font-size: 12px;
+            line-height: 17px;
+            padding: 20px 0px 5px 0px;
+            color: rgba(255, 255, 255, 0.2);
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 0.250em;
+        }
+
+        .footer .col ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer .col ul li {
+            color: #999999;
+            font-size: 14px;
+            font-family: inherit;
+            font-weight: bold;
+            padding: 5px 0px 5px 0px;
+            cursor: pointer;
+            transition: .2s;
+            -webkit-transition: .2s;
+            -moz-transition: .2s;
+        }
+
+        .social ul li {
+            display: inline-block;
+            padding-right: 5px !important;
+        }
+
+        .footer .col ul li:hover {
+            color: #ffffff;
+            transition: .1s;
+            -webkit-transition: .1s;
+            -moz-transition: .1s;
+        }
+
+        .clearfix {
+            clear: both;
+        }
+
+        @media only screen and (min-width: 1280px) {
+            .contain {
+                width: 1200px;
+                margin: 0 auto;
+            }
+        }
+
+        @media only screen and (max-width: 1139px) {
+            .contain .social {
+                width: 1000px;
+                display: block;
+            }
+
+            .social h1 {
+                margin: 0px;
+            }
+        }
+
+        @media only screen and (max-width: 950px) {
+            .footer .col {
+                width: 33%;
+            }
+
+            .footer .col h1 {
+                font-size: 14px;
+            }
+
+            .footer .col ul li {
+                font-size: 13px;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .footer .col {
+                width: 50%;
+            }
+
+            .footer .col h1 {
+                font-size: 14px;
+            }
+
+            .footer .col ul li {
+                font-size: 13px;
+            }
+        }
+
+        @media only screen and (max-width: 340px) {
+            .footer .col {
+                width: 100%;
+            }
+        }
+
+
+     .imaging{
+         margin-top: 130px;
+         margin-left: 150px;
+     }   
+
+    </style>
+</head>
+<body>
+    <section>
+        <nav>
+          <div class="logo">KrishiSahayak</div>
+          <input type="checkbox" id="click">
+          <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+          </label>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+        <li><a href="Farmers'Corner.html">Farmers' Corner</a></li>
+        <li><a href="CustomerCorner.html">Customers' Corner</a>
+        </li>
+        
+        <li><a href="NGO&Corporate.html">NGO/Consultant Corner</a></li>
+        <li><a href="news.html">Agro-News</a>
+        </li>
+        <li><a href="Donations.html">Donations</a></li>
+        <li><a
+          href="login.html">LOGIN/SIGN UP</a>
+      </li>
+          </ul>
+        </nav>
+    
+    
+        </div>
+    
+      </section>
+
+      
+     
+    <b>
+      <form action="/foodsordernow" method="POST">
+        {% csrf_token %}
+            
+            <section class="text-gray-50 body-font relative">
+                <div class="container px-5 py-24 mx-auto">
+                  <div class="flex flex-col text-center w-full mb-12">
+                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-50">Please place your order</h1>
+                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Fill in all details carefully. The Shopkepper will contact you soon.</p>
+                  </div>
+                  <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                    <div class="flex flex-wrap -m-2">
+                      <div class="p-2 w-full">
+                        <div class="relative">
+                          <label for="firstname" class="leading-7 text-sm text-gray-50">First Name</label>
+                          <input type="text" id="firstname" name="firstname" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                      </div>
+                      <div class="p-2 w-full">
+                        <div class="relative">
+                          <label for="lastname" class="leading-7 text-sm text-gray-50">Last Name</label>
+                          <input type="text" id="lastname" name="lastname" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                      </div>
+                      
+                      <div class="p-2 w-full">
+                        <div class="relative">
+                          <label for="country" class="leading-7 text-sm text-gray-50">Country</label>
+                          <input type="text" id="country" name="country" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                      </div>
+                      <div class="p-2 w-full">
+                        <div class="relative">
+                          <label for="state" class="leading-7 text-sm text-gray-50">State</label>
+                          <input type="text" id="state" name="state" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                      </div>
+                      <div class="p-2 w-full">
+                        <div class="relative">
+                          <label for="city" class="leading-7 text-sm text-gray-50">City/Town/Village</label>
+                          <input type="text" id="city" name="city" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                      </div>
+                      <div class="p-2 w-full">
+                        <div class="relative">
+                          <label for="address" class="leading-7 text-sm text-gray-50">Full Address</label>
+                          <input type="text" id="address" name="address" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                      </div>
+                      <div class="p-2 w-full">
+                        <div class="relative">
+                          <label for="pin" class="leading-7 text-sm text-gray-50">Pin-Code</label>
+                          <input type="number" id="pin" name="pin" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                      </div>
+                      <div class="p-2 w-full">
+                        <div class="relative">
+                          <label for="phone" class="leading-7 text-sm text-gray-50">Phone Number</label>
+                          <input type="number" id="phone" name="phone" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                      </div>
+
+                      <div class="p-2 w-full">
+                        <div class="relative">
+                          <label for="productname" class="leading-7 text-sm text-gray-50">Product ID</label>
+                          <input type="text" id="productname" name="productname" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                      </div>
+
+
+                      <div class="p-2 w-full">
+                        <div class="relative">
+                          <label for="productID" class="leading-7 text-sm text-gray-50">Product Name</label>
+                          <input type="text" id="productID" name="productID" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                      </div>
+                     
+                      
+                     
+                    
+                   
+                      <div class="p-2 w-full">
+                        <div class="relative">
+                          <label for="quantity" class="leading-7 text-sm text-gray-50">How many do you need?</label>
+                          <input type="number" id="quantity" name="quantity" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                      </div>
+                      <div class="p-2 w-full">
+                        <div class="relative">
+                          <label for="msg" class="leading-7 text-sm text-gray-50">Any Message for seller?</label>
+                          <input type="text" id="msg" name="msg" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                      </div>
+                      
+                         
+                        </div>
+                      </div>
+    
+    
+    
+    
+                      <div class="p-2 w-full">
+                        <button type="submit" class="flex mx-auto text-white bg-pink-700 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Buy</button>
+                      </div>
+                      <div class="p-2 w-full">
+                        <a href="/payment"><button class="flex mx-auto text-white bg-green-700 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Pay</button></a>
+                      </div>
+    
+    
+                   
+    
+    
+    
+    
+    
+                      <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+                       
+                        
+                        <span class="inline-flex">
+                          <a class="text-gray-500">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                            </svg>
+                          </a>
+                          <a class="ml-4 text-gray-500">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                              <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                            </svg>
+                          </a>
+                          <a class="ml-4 text-gray-500">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                            </svg>
+                          </a>
+                          <a class="ml-4 text-gray-500">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                              <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                            </svg>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+             
+         
+            </form>
+    
+     </section>
+    
+          </b>
+    
+    
+
+
+
+<!-- FOOTER START -->
+<div class="footer">
+    <div class="contain">
+        <div class="col">
+            <h1>Company</h1>
+            <ul>
+                <li>About</li>
+                <li>Mission</li>
+                <li>Services</li>
+                <li>Social</li>
+                <li>Get in touch</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h1>Products</h1>
+            <ul>
+                <li>About</li>
+                <li>Mission</li>
+                <li>Services</li>
+                <li>Social</li>
+                <li>Get in touch</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h1>Accounts</h1>
+            <ul>
+                <li>About</li>
+                <li>Mission</li>
+                <li>Services</li>
+                <li>Social</li>
+                <li>Get in touch</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h1>Resources</h1>
+            <ul>
+                <li>Webmail</li>
+                <li>Redeem code</li>
+                <li>WHOIS lookup</li>
+                <li>Site map</li>
+                <li>Web templates</li>
+                <li>Email templates</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h1>Support</h1>
+            <ul>
+                <li>Contact us</li>
+                <li>Web chat</li>
+                <li>Open ticket</li>
+            </ul>
+        </div>
+        <div class="col social">
+            <h1>Social</h1>
+            <ul>
+                <li><img src="https://svgshare.com/i/5fq.svg" width="32" style="width: 32px;"></li>
+                <li><img src="https://svgshare.com/i/5eA.svg" width="32" style="width: 32px;"></li>
+                <li><img src="https://svgshare.com/i/5f_.svg" width="32" style="width: 32px;"></li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+  </div>
+  <!-- END OF FOOTER -->
+
+</body>
+</html>
