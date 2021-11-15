@@ -393,8 +393,29 @@
 
 
 
+.buttonblog {
+  margin: 70px;
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
 
+.buttonblog:hover {background-color: #14a3a3}
 
+.buttonblog:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 
 
 
@@ -407,8 +428,11 @@
 
 
   <section>
+    {% for msg in messages %}
+          {{msg}}
+          {% endfor %} 
     <nav>
-      <div class="logo">KrishiSahayak</div>
+      <div class="logo">AgroAspire</div>
       <input type="checkbox" id="click">
       <label for="click" class="menu-btn">
         <i class="fas fa-bars"></i>
@@ -419,13 +443,25 @@
         <li><a href="/CustomerCorner">Customers' Corner</a>
         </li>
         
-        <li><a href="/NGO&Corporate">NGO/Consultant Corner</a></li>
-        <li><a href="/news">Agro-News</a>
-        </li>
+        <li><a href="/NGOCorporate">NGO/Consultant Corner</a></li>
+       <!-- <li><a href="/news">Agro-News</a>
+        </li>-->
         <li><a href="/shopkeepers">Shops</a></li>
-        <li><a
+        <!--<li><a
           href="/Donations">Donate</a>
+      </li>-->
+      {% if user.is_authenticated %}
+      <li><a href="/logout">
+       Welcome {{request.user}} | LogOut</a></li>
+ 
+
+  
+      
+      {% else %}
+      <li>
+        <a href="/news">AgroNews</a>
       </li>
+      {% endif %}
       </ul>
     </nav>
 
@@ -494,7 +530,13 @@
 
 
 
-
+<section>
+  <h1 style="text-align: center; margin: 30px;">Other Features</h1>
+  <button class="buttonblog"><a href="/blog">AgroBlogs</a></button>
+  <button class="buttonblog"><a href="/news">AgroNews</a></button>
+  <button class="buttonblog"><a href="/donate">Donations</a></button>
+  <button class="buttonblog"><a href="/connect">Connect</a></button>
+</section>
 
 
 

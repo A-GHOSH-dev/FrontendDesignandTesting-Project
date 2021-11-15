@@ -48,8 +48,7 @@ class FoodOrder(models.Model):
         return self.firstname + ' ' + self.lastname + ' ' + self.productID
 
 
-
-    def save(self, *args, **kwargs):
+'''def save(self, *args, **kwargs):
         if int(self.quantity) > 0:
             account_sid = 'AC9afeae960cdf883927ff6753fb07896e'
             auth_token = '2fe728095c92dfda06c823b1602bb177'
@@ -66,7 +65,7 @@ class FoodOrder(models.Model):
 
             return super().save(*args, **kwargs)
 
-
+'''
 
 
 #shopupload
@@ -80,7 +79,7 @@ class ShopUpload(models.Model):
     shoplocation = models.CharField(max_length=100)
     shopcontact = models.CharField(max_length=10)
     postdate = models.DateTimeField()
-    productpic = models.ImageField(upload_to='shops/imagess')
+#productpic = models.ImageField(upload_to='shops/imagess')
     
     
     def __str__(self):
@@ -88,6 +87,62 @@ class ShopUpload(models.Model):
 
 
 
+#farmerupload
+class FarmerUpload(models.Model):
+    farmerproducttype = models.CharField(max_length=50)
+    farmerproductname = models.CharField(max_length=50)
+    IDproductfarmer = models.CharField(max_length=20)  
+    pricefarmer = models.CharField(max_length=10)
+    descfarmer = models.CharField(max_length=500)
+    
+    farmername = models.CharField(max_length=50)
+    farmerlocation = models.CharField(max_length=100)
+    farmercontact = models.CharField(max_length=10)
+    postdatefarmer = models.DateTimeField()
+    
+    
+    
+    def __str__(self):
+        return self.farmerproducttype + ' ' + self.farmerproductname + ' ' + self.IDproductfarmer + ' ' + self.farmername
 
 
 
+
+
+
+#customerorder
+class CustomerOrder(models.Model):
+    Cfirstname = models.CharField(max_length=50)
+    Clastname = models.CharField(max_length=50)  
+    Ccountry = models.CharField(max_length=50)
+    Cstate = models.CharField(max_length=50)
+    Ccity = models.CharField(max_length=50)
+    Caddress = models.CharField(max_length=300)
+    Cpin = models.CharField(max_length=30)
+    Cphone = models.CharField(max_length=10)
+    Cproductname = models.CharField(max_length=50)
+    CproductID = models.CharField(max_length=20) 
+    Cquantity = models.PositiveIntegerField()
+    Cmsg = models.CharField(max_length=500)
+    
+    def __str__(self):
+        return self.Cfirstname + ' ' + self.Clastname + ' ' + self.CproductID
+
+
+''' def save(self, *args, **kwargs):
+        if int(self.quantity) > 0:
+            account_sid = 'AC9afeae960cdf883927ff6753fb07896e'
+            auth_token = '2fe728095c92dfda06c823b1602bb177'
+            client = Client(account_sid, auth_token)
+
+            message = client.messages \
+                    .create(
+                        body=f'New Order: FirstName:{self.Cfirstname}, LastName:{self.Clastname}, ID:{self.CproductID}, Country:{self.Ccountry},state:{self.Cstate},city:{self.Ccity},address:{self.Caddress},pin:{self.Cpin},phoneno.:{self.Cphone},productname:{self.Cproductname},quantity:{self.Cquantity},message:{self.Cmsg}',
+                        from_='+15102300421',
+                        to='+919163036951'
+                    )
+
+            print(message.sid)
+
+            return super().save(*args, **kwargs)
+'''

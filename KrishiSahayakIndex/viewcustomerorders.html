@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>ShopView</title>
+  <title>FarmerviewView</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-  
- 
   
 </head>
 <body>
@@ -19,9 +17,9 @@
     <a href="/home"><button class="flex mx-auto text-white bg-green-700 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">HOME</button></a>
   </div>
   <h2 class="text-center">Orders Placed</h2>
-  <p class="text-center">Check the products and orders place by the farmers for your product. </p>   
+  <p class="text-center">Check the products and orders place by the customers for your product. </p>   
   
-            <h4 class="text-center"><em>Total: {{farmerbuyorder|length}}</em></h4>         
+            <h4 class="text-center"><em>Total: {{customerbuyorder|length}}</em></h4>         
            
   <table class="table-center table-bordered text-center">
     <thead>
@@ -41,20 +39,20 @@
       </tr>
     </thead>
     <tbody>
-      {% for orders in farmerbuyorder %}
+      {% for orders in customerbuyorder %}
       <tr>
-          <td>{{orders.firstname}}</td>
-          <td>{{orders.lastname}}</td>
-          <td>{{orders.country}}</td>
-          <td>{{orders.state}}</td>
-          <td>{{orders.city}}</td>
-          <td>{{orders.address}}</td>
-          <td>{{orders.pin}}</td>
-          <td>{{orders.phone}}</td>
-          <td>{{orders.productname}}</td>
-          <td>{{orders.productID}}</td>
-          <td>{{orders.quantity}}</td>
-          <td>{{orders.msg}}</td>
+          <td>{{orders.Cfirstname}}</td>
+          <td>{{orders.Clastname}}</td>
+          <td>{{orders.Ccountry}}</td>
+          <td>{{orders.Cstate}}</td>
+          <td>{{orders.Ccity}}</td>
+          <td>{{orders.Caddress}}</td>
+          <td>{{orders.Cpin}}</td>
+          <td>{{orders.Cphone}}</td>
+          <td>{{orders.Cproductname}}</td>
+          <td>{{orders.CproductID}}</td>
+          <td>{{orders.Cquantity}}</td>
+          <td>{{orders.Cmsg}}</td>
           
           
       </tr>

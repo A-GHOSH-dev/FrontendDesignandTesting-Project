@@ -1,7 +1,11 @@
 from KrishiSahayakWeb.settings import RAZORPAY_API_KEY
-from django.shortcuts import render, HttpResponse
-from KrishiSahayak.models import SignUp, Login, FoodOrder, ShopUpload
+from django.shortcuts import render, HttpResponse, redirect
+from KrishiSahayak.models import SignUp, Login, FoodOrder, ShopUpload, FarmerUpload, CustomerOrder
 import razorpay
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+#from django.contrib.auth import login as auth_login
 
 # Create your views here.
 def index(request):
@@ -12,7 +16,12 @@ def home(request):
     #return HttpResponse("This is my home page")
     return render(request, 'home.html')
 
-def signup(request):
+
+###################################
+#user sign up
+###################################
+
+'''def signup(request):
     
     if request.method=="POST":
         Sfirstname=request.POST['Sfirstname']
@@ -36,22 +45,105 @@ def signup(request):
     #return HttpResponse("This is my home page")
     return render(request, 'signup.html')
 
-def login(request):
+'''
 
-    if request.method=="POST":
-        username=request.POST['username'] 
-        password=request.POST['password']
+
+
+
+def handleSignup(request):
+    if request.method=='GET':
+        return render(request, 'signup.html')
+    if request.method=='POST':
+        #Get parameters posted
+        username=request.POST['username']
+        email=request.POST['email']
+        Sfirstname=request.POST['Sfirstname']
+        Slastname=request.POST['Slastname']        
+        Scountry=request.POST['Scountry']
+        Sstate=request.POST['Sstate']
+        Scity=request.POST['Scity']
+        Saddress=request.POST['Saddress']
+        Spin=request.POST['Spin']
+        Sphone=request.POST['Sphone']
+        pass1=request.POST['pass1']
+        pass2=request.POST['pass1']
+
+#    ''' #Check info eerors
+#        if len(username)<10:
+#            messages.error(request, " Your user name must be under 10 characters")
+#            return redirect('signup')
+#
+#        if not username.isalnum():
+#            messages.error(request, " User name should only contain letters and numbers")
+#            return redirect('signup')
+#        if (pass1!= pass2):
+#             messages.error(request, " Passwords do not match")
+#             return redirect('signup')'''
+
+        #Create User
+        myuser = User.objects.create_user(username, email, pass1)
+        myuser.first_name=Sfirstname
+        myuser.Last_name=Slastname
+        myuser.save()
+        messages.success(request, "Your account has been successfully created")
+
+    
+        return redirect('/')
+
+
+#########################################
+#login user
+#########################################
+
+
+
+#'''
+#def login(request):
+
+#    if request.method=="POST":
+#        username=request.POST['username'] 
+#        password=request.POST['password']
+#        
+#
+#        print(username, password)
+#
+#        ins = Login(username=username, password=password)  
+#
+#        ins.save()
+#        print("Data stored in Ldb")
+#
+#    #return HttpResponse("This is my home page")
+#    return render(request, 'login.html')
+#
+#'''
+
+def handleLogin(request):
+    if request.method=='GET':
+        return render(request, 'login.html')
         
+    if request.method=='POST':
+        loginusername=request.POST['loginusername'] 
+        loginpassword=request.POST['loginpassword']
 
-        print(username, password)
+        user=authenticate(username=loginusername, password=loginpassword)
+        if user is not None:
+            login(request, user)
+            messages.success(request, "Successfully logged in")
+            return redirect('home')
+        else:
+            messages.error(request, "Invalid Credentials")
+            return redirect('handleLogin')
+    
+    
+    #return HttpResponse('handleLogin')
 
-        ins = Login(username=username, password=password)  
+def handleLogout(request):
+    logout(request)
+    messages.success(request, "Successfully Logged Out")
+    return redirect('/')
 
-        ins.save()
-        print("Data stored in Ldb")
 
-    #return HttpResponse("This is my home page")
-    return render(request, 'login.html')
+
 
 def FarmersCorner(request):
     
@@ -109,8 +201,8 @@ def foodsordernow(request):
         farmerbuydata = FoodOrder(firstname=firstname, lastname=lastname, country=country, state=state, city=city, address=address, pin=pin, phone=phone, productname=productname, productID=productID, quantity=quantity, msg=msg)  
 
         farmerbuydata.save()
-        res = "Dear {} Thanks for your feedback".format(firstname)
-        return render(request,"foodsordernow.html",{"status":res,"Orders":farmerbuyorder})
+        return redirect('payment')
+        #return render(request,"foodsordernow.html",{"Orders":farmerbuyorder})
         
         
     return render(request,"foodsordernow.html",{"Orders":farmerbuyorder})
@@ -134,13 +226,13 @@ def shopupload(request):
         shopcontact=request.POST['shopcontact'] 
         
         postdate=request.POST['postdate']
-        productpic=request.POST['productpic']
+       # productpic=request.POST['productpic']
         
 
 
-        print(shopproductname, IDproduct, price, desc, shopkeepername, shopname, shoplocation, shopcontact, postdate, productpic)
+        print(shopproductname, IDproduct, price, desc, shopkeepername, shopname, shoplocation, shopcontact, postdate)
 
-        ins = ShopUpload(shopproductname=shopproductname, IDproduct=IDproduct, price=price, desc=desc, shopkeepername=shopkeepername, shopname=shopname, shoplocation=shoplocation, shopcontact=shopcontact, postdate=postdate, productpic=productpic)  
+        ins = ShopUpload(shopproductname=shopproductname, IDproduct=IDproduct, price=price, desc=desc, shopkeepername=shopkeepername, shopname=shopname, shoplocation=shoplocation, shopcontact=shopcontact, postdate=postdate)  
 
         ins.save()
         print("Data stored in SUdb")
@@ -153,9 +245,7 @@ def shopview(request):
     
     return render(request,"shopview.html",{"farmerbuyorder":farmerbuyorder})
         
-def CustomerCorner(request):
-    #return HttpResponse("This is my home page")
-    return render(request, 'CustomerCorner.html')
+
 def Apiculture(request):
     #return HttpResponse("This is my home page")
     return render(request, 'Apiculture.html')
@@ -183,9 +273,83 @@ def chatbot(request):
 def NGOCorporate(request):
     #return HttpResponse("This is my home page")
     return render(request, 'NGOCorporate.html') 
+
+
+
+
+def farmerupload(request):
+    if request.method=="POST":
+        farmerproducttype=request.POST['farmerproducttype']
+        farmerproductname=request.POST['farmerproductname']
+        IDproductfarmer=request.POST['IDproductfarmer']        
+        
+        pricefarmer=request.POST['pricefarmer']
+        descfarmer=request.POST['descfarmer']
+        
+        farmername=request.POST['farmername']
+        farmerlocation=request.POST['farmerlocation']
+        farmercontact=request.POST['farmercontact'] 
+        
+        postdatefarmer=request.POST['postdatefarmer']
+        
+        
+
+
+        print(farmerproducttype, farmerproductname, IDproductfarmer, pricefarmer, descfarmer, farmername, farmerlocation, farmercontact, postdatefarmer)
+
+        ins = FarmerUpload(farmerproducttype=farmerproducttype, farmerproductname=farmerproductname, IDproductfarmer=IDproductfarmer, pricefarmer=pricefarmer, descfarmer=descfarmer, farmername=farmername, farmerlocation=farmerlocation, farmercontact=farmercontact, postdatefarmer=postdatefarmer)  
+
+        ins.save()
+        print("Data stored in FUdb")
+
+    #return HttpResponse("This is my home page")
+    return render(request, 'farmerupload.html')
     
 
 
+def CustomerCorner(request):
+    customerproductcart = FarmerUpload.objects.all()
+    
+    return render(request,"CustomerCorner.html",{"customerproductcart":customerproductcart})
+
+
+
+
+def customerorder(request):
+    customerbuyorder = CustomerOrder.objects.all()
+    if request.method=="POST":
+        Cfirstname=request.POST['Cfirstname']
+        Clastname=request.POST['Clastname']        
+        
+        Ccountry=request.POST['Ccountry']
+        Cstate=request.POST['Cstate']
+        Ccity=request.POST['Ccity']
+        Caddress=request.POST['Caddress']
+        Cpin=request.POST['Cpin']
+        Cphone=request.POST['Cphone'] 
+        
+        Cproductname=request.POST['Cproductname']
+        CproductID=request.POST['CproductID']
+        Cquantity=request.POST['Cquantity']
+        Cmsg=request.POST['Cmsg']
+        
+
+        #print(firstname, lastname, country, state, city, address, pin, phone, productname, productID, quantity, msg)
+
+        customerbuydata = CustomerOrder(Cfirstname=Cfirstname, Clastname=Clastname, Ccountry=Ccountry, Cstate=Cstate, Ccity=Ccity, Caddress=Caddress, Cpin=Cpin, Cphone=Cphone, Cproductname=Cproductname, CproductID=CproductID, Cquantity=Cquantity, Cmsg=Cmsg)  
+
+        customerbuydata.save()
+        return redirect('payment')
+        #return render(request,"customerorder.html",{"Orders":customerbuyorder})
+        
+        
+    return render(request,"customerorder.html",{"Orders":customerbuyorder})
+
+
+def viewcustomerorders(request):
+    customerbuyorder = CustomerOrder.objects.all()
+    
+    return render(request,"viewcustomerorders.html",{"customerbuyorder":customerbuyorder})  
 
 
 

@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <title>ShopUpload</title>
+    <title>FarmerpUpload</title>
 </head>
 <body>
     
 <style>
     html{
-        background-color: rgb(11, 206, 11);
+        background-color: rgb(247, 187, 76);
     }
 </style>
 
     <b>
-        <form action="/shopupload" method="POST">
+        <form action="/farmerupload" method="POST">
           {% csrf_token %}
               
               <section class="text-gray-50 body-font relative">
@@ -29,70 +29,71 @@
                       <div class="flex flex-wrap -m-2">
                         <div class="p-2 w-full">
                           <div class="relative">
-                            <label for="shopproductname" class="leading-7 text-sm text-gray-50">Product Name</label>
-                            <input type="text" id="shopproductname" name="shopproductname" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <label for="farmerproducttype" class="leading-7 text-sm text-gray-50">Product Type</label>
+                            <input type="text" id="farmerproducttype" name="farmerproducttype" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                           </div>
                         </div>
                         <div class="p-2 w-full">
                           <div class="relative">
-                            <label for="IDproduct" class="leading-7 text-sm text-gray-50">Product ID</label>
-                            <input type="text" id="IDproduct" name="IDproduct" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <label for="farmerproductname" class="leading-7 text-sm text-gray-50">Product Name</label>
+                            <input type="text" id="farmerproductname" name="farmerproductname" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                           </div>
                         </div>
                         <div class="p-2 w-full">
                           <div class="relative">
-                            <label for="price" class="leading-7 text-sm text-gray-50">Price</label>
-                            <input type="text" id="price" name="price" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <label for="IDproductfarmer" class="leading-7 text-sm text-gray-50">Product ID</label>
+                            <input type="text" id="IDproductfarmer" name="IDproductfarmer" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                          </div>
+                        </div>
+                        <div class="p-2 w-full">
+                          <div class="relative">
+                            <label for="pricefarmer" class="leading-7 text-sm text-gray-50">Price</label>
+                            <input type="text" id="pricefarmer" name="pricefarmer" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                           </div>
                         </div>
                         <div class="p-2 w-full">
                             <div class="relative">
-                              <label for="desc" class="leading-7 text-sm text-gray-50">Description</label>
-                              <input type="text" id="desc" name="desc" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                              <label for="descfarmer" class="leading-7 text-sm text-gray-50">Description</label>
+                              <input type="text" id="descfarmer" name="descfarmer" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                          </div>
+                         
+                          <div class="p-2 w-full">
+                            <div class="relative">
+                              <label for="farmername" class="leading-7 text-sm text-gray-50">farmer name</label>
+                              <input type="text" id="farmername" name="farmername" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
                           </div>
                           <div class="p-2 w-full">
                             <div class="relative">
-                              <label for="shopkeepername" class="leading-7 text-sm text-gray-50">Shopkeeper's name</label>
-                              <input type="text" id="shopkeepername" name="shopkeepername" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                              <label for="farmerlocation" class="leading-7 text-sm text-gray-50">Location</label>
+                              <input type="text" id="farmerlocation" name="farmerlocation" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
                           </div>
                           <div class="p-2 w-full">
                             <div class="relative">
-                              <label for="shopname" class="leading-7 text-sm text-gray-50">Shop name</label>
-                              <input type="text" id="shopname" name="shopname" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                              <label for="farmercontact" class="leading-7 text-sm text-gray-50">Contact Number</label>
+                              <input type="number" id="farmercontact" name="farmercontact" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
                           </div>
                           <div class="p-2 w-full">
                             <div class="relative">
-                              <label for="shoplocation" class="leading-7 text-sm text-gray-50">Location</label>
-                              <input type="text" id="shoplocation" name="shoplocation" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            </div>
-                          </div>
-                          <div class="p-2 w-full">
-                            <div class="relative">
-                              <label for="shopcontact" class="leading-7 text-sm text-gray-50">Contact Number</label>
-                              <input type="number" id="shopcontact" name="shopcontact" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            </div>
-                          </div>
-                          <div class="p-2 w-full">
-                            <div class="relative">
-                              <label for="postdate" class="leading-7 text-sm text-gray-50">Date of Posting</label>
-                              <input type="datetime" id="postdate" name="postdate" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                              <label for="postdatefarmer" class="leading-7 text-sm text-gray-50">Date of Posting</label>
+                              <input type="datetime" id="postdatefarmer" name="postdatefarmer" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
                           </div>
 
 
 
-
-                  <!--      <div class="p-2 w-full">
+<!--
+                          <div class="p-2 w-full">
                             <div class="relative">
                               <label for="productpic" class="leading-7 text-sm text-gray-50">Click on the "Choose File" button to upload an image of the product:</label>
                               
                               <input type="file" id="productpic" name="productpic" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
-                          </div>-->  
-
+                          </div>
+-->
 
 
 
@@ -110,11 +111,11 @@
                           <button type="submit" class="flex mx-auto text-white bg-green-400 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">UPLOAD</button>
                         </div>
       
-      
-                     
                         <div class="p-2 w-full">
                           <a href="/home"><button class="flex mx-auto text-white bg-green-700 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">HOME</button></a>
                         </div>
+                     
+      
       
 
 

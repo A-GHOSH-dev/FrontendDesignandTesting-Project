@@ -136,7 +136,7 @@
 
 
 body{
-  background-color: rgb(22, 123, 240);
+  background-color: rgb(5, 145, 155);
 }
 
 
@@ -299,79 +299,79 @@ body{
       
      
     <b>
-      <form action="/foodsordernow" method="POST">
+      <form action="/customerorder" method="POST">
         {% csrf_token %}
             
             <section class="text-gray-50 body-font relative">
                 <div class="container px-5 py-24 mx-auto">
                   <div class="flex flex-col text-center w-full mb-12">
                     <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-50">Please place your order</h1>
-                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Fill in all details carefully. The Shopkepper will contact you soon.</p>
+                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Fill in all details carefully. The Farmer will contact you soon.</p>
                   </div>
                   <div class="lg:w-1/2 md:w-2/3 mx-auto">
                     <div class="flex flex-wrap -m-2">
                       <div class="p-2 w-full">
                         <div class="relative">
-                          <label for="firstname" class="leading-7 text-sm text-gray-50">First Name</label>
-                          <input type="text" id="firstname" name="firstname" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                          <label for="Cfirstname" class="leading-7 text-sm text-gray-50">First Name</label>
+                          <input type="text" id="Cfirstname" name="Cfirstname" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                       </div>
                       <div class="p-2 w-full">
                         <div class="relative">
-                          <label for="lastname" class="leading-7 text-sm text-gray-50">Last Name</label>
-                          <input type="text" id="lastname" name="lastname" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                          <label for="Clastname" class="leading-7 text-sm text-gray-50">Last Name</label>
+                          <input type="text" id="Clastname" name="Clastname" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                       </div>
                       
                       <div class="p-2 w-full">
                         <div class="relative">
-                          <label for="country" class="leading-7 text-sm text-gray-50">Country</label>
-                          <input type="text" id="country" name="country" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                          <label for="Ccountry" class="leading-7 text-sm text-gray-50">Country</label>
+                          <input type="text" id="Ccountry" name="Ccountry" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                       </div>
                       <div class="p-2 w-full">
                         <div class="relative">
-                          <label for="state" class="leading-7 text-sm text-gray-50">State</label>
-                          <input type="text" id="state" name="state" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                          <label for="Cstate" class="leading-7 text-sm text-gray-50">State</label>
+                          <input type="text" id="Cstate" name="Cstate" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                       </div>
                       <div class="p-2 w-full">
                         <div class="relative">
-                          <label for="city" class="leading-7 text-sm text-gray-50">City/Town/Village</label>
-                          <input type="text" id="city" name="city" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                          <label for="Ccity" class="leading-7 text-sm text-gray-50">City/Town/Village</label>
+                          <input type="text" id="Ccity" name="Ccity" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                       </div>
                       <div class="p-2 w-full">
                         <div class="relative">
-                          <label for="address" class="leading-7 text-sm text-gray-50">Full Address</label>
-                          <input type="text" id="address" name="address" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                          <label for="Caddress" class="leading-7 text-sm text-gray-50">Full Address</label>
+                          <input type="text" id="Caddress" name="Caddress" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                       </div>
                       <div class="p-2 w-full">
                         <div class="relative">
-                          <label for="pin" class="leading-7 text-sm text-gray-50">Pin-Code</label>
-                          <input type="number" id="pin" name="pin" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                          <label for="Cpin" class="leading-7 text-sm text-gray-50">Pin-Code</label>
+                          <input type="number" id="Cpin" name="Cpin" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                       </div>
                       <div class="p-2 w-full">
                         <div class="relative">
-                          <label for="phone" class="leading-7 text-sm text-gray-50">Phone Number</label>
-                          <input type="number" id="phone" name="phone" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                        </div>
-                      </div>
-
-                      <div class="p-2 w-full">
-                        <div class="relative">
-                          <label for="productname" class="leading-7 text-sm text-gray-50">Product ID</label>
-                          <input type="text" id="productname" name="productname" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                          <label for="Cphone" class="leading-7 text-sm text-gray-50">Phone Number</label>
+                          <input type="number" id="Cphone" name="Cphone" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                       </div>
 
+                      <div class="p-2 w-full">
+                        <div class="relative">
+                          <label for="Cproductname" class="leading-7 text-sm text-gray-50">Product ID</label>
+                          <input type="text" id="Cproductname" name="Cproductname" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                      </div>
+
 
                       <div class="p-2 w-full">
                         <div class="relative">
-                          <label for="productID" class="leading-7 text-sm text-gray-50">Product Name</label>
-                          <input type="text" id="productID" name="productID" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                          <label for="CproductID" class="leading-7 text-sm text-gray-50">Product Name</label>
+                          <input type="text" id="CproductID" name="CproductID" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                       </div>
                      
@@ -381,14 +381,14 @@ body{
                    
                       <div class="p-2 w-full">
                         <div class="relative">
-                          <label for="quantity" class="leading-7 text-sm text-gray-50">How many do you need?</label>
-                          <input type="number" id="quantity" name="quantity" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                          <label for="Cquantity" class="leading-7 text-sm text-gray-50">How many do you need?</label>
+                          <input type="number" id="Cquantity" name="Cquantity" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                       </div>
                       <div class="p-2 w-full">
                         <div class="relative">
-                          <label for="msg" class="leading-7 text-sm text-gray-50">Any Message for seller?</label>
-                          <input type="text" id="msg" name="msg" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                          <label for="Cmsg" class="leading-7 text-sm text-gray-50">Any Message for seller?</label>
+                          <input type="text" id="Cmsg" name="Cmsg" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                       </div>
                       

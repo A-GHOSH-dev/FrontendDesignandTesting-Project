@@ -273,7 +273,7 @@
 <body>
     <section>
         <nav>
-          <div class="logo">KrishiSahayak</div>
+          <div class="logo">AgroAspire</div>
           <input type="checkbox" id="click">
           <label for="click" class="menu-btn">
             <i class="fas fa-bars"></i>
@@ -296,9 +296,11 @@
         </div>    
       </section>
       <b>
-        <form action="/home" method="POST">
+        <form action="/login" method="POST">
           {% csrf_token %}
-              
+          {% for msg in messages %}
+          {{msg}}
+          {% endfor %} 
               <section class="text-gray-50 body-font relative">
                   <div class="container px-5 py-24 mx-auto">
                     <div class="flex flex-col text-center w-full mb-12">
@@ -309,14 +311,14 @@
                       <div class="flex flex-wrap -m-2">
                         <div class="p-2 w-full">
                           <div class="relative">
-                            <label for="username" class="leading-7 text-sm text-gray-800">UserName</label>
-                            <input type="text" id="username" name="username" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <label for="loginusername" class="leading-7 text-sm text-gray-800">UserName</label>
+                            <input type="text" id="loginusername" name="loginusername" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                           </div>
                         </div>
                         <div class="p-2 w-full">
                           <div class="relative">
-                            <label for="password" class="leading-7 text-sm text-gray-800">Password</label>
-                            <input type="password" id="password" name="password" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <label for="loginpassword" class="leading-7 text-sm text-gray-800">Password</label>
+                            <input type="password" id="loginpassword" name="loginpassword" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                           </div>
                         </div>
                         
@@ -340,7 +342,9 @@
       
       
                      
-      
+                        <div class="p-2 w-full">
+                          <a href="/home"><button class="flex mx-auto text-white bg-green-700 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">HOME</button></a>
+                        </div>
       
       
       

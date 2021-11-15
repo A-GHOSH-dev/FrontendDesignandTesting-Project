@@ -969,7 +969,7 @@ footer.copyright a{
     <div class="main-wrapper">
         <div class="nav-background">
             <div class="mobile-logo">
-                <h1>KrishiSahayak</h1>
+                <h1>AgroAspire</h1>
             </div>
             <div class="mobile-nav">
                 <div class="cart">
@@ -1077,7 +1077,7 @@ footer.copyright a{
                     </div>
                     <div class="navbar magic-shadow">
                         <div class="container flex justify-center">
-                            <a href="#" class="active">Home</a>
+                            <a href="/home" class="active">Home</a>
                             <a href="#">About us</a>
                             <a href="#">Products</a>
                             <a href="#">Articles</a>
@@ -1095,7 +1095,7 @@ footer.copyright a{
                             
                             
                         </div>
-                        <h1>Welcome to <span>KrishiSahayak</span> </h1>
+                        <h1>Welcome to <span>AgroAspire</span> </h1>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the
                             industry's standard dummy.</p>
@@ -1215,6 +1215,134 @@ footer.copyright a{
                         </div>
                     </div>
                 </section>
+
+
+
+
+
+<!------------------------------------------------------>
+<!-------------------Farmer sellings---------------------------->
+<!------------------------------------------------------->
+                <section class="top-products">
+                    <div class="container">
+                        <h4 class="text-center"><em>Total: {{customerproductcart|length}}</em></h4> 
+                        <div class="slider">
+                            {% load static %}
+                            <button class="slider-btn prev-btn"><img src="{% static 'icons/pre.svg' %}" alt=""></button>
+                            {% load static %}
+                            <button class="slider-btn next-btn"><img src="{% static 'icons/next.svg' %}" alt=""></button>
+                            <div class="food-slider">
+                               
+                                {% for products in customerproductcart %}
+                                <div class="food-card magic-shadow-sm">
+                                    
+                                    <hr>
+                                    <div>
+                                        <h2 class="text-center">{{products.farmerproducttype}}</h2>
+                                        <div class="stars flex justify-center items-center">
+                                            
+                                        </div>
+                                        <div class="price text-center">
+                                            {{products.farmerproductname}}<br>
+                                            {{products.IDproductfarmer}}<br>
+                                            {{products.farmerlocation}}<br>
+                                            Rs.{{products.pricefarmer}}
+                                        </div>
+                                        <div class="flex justify-center">
+                                            <button>
+                                                
+                                              <a href="/customerorder">  <span>Explore</span></a>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                    <!--            <div class="food-card magic-shadow-sm">
+                                    <div class="product-image flex items-center justify-center">
+                                        {% load static %}
+                                        <img src="{% static 'images/veg.png' %}" alt="">
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        <h2 class="text-center">Fruits and Vegetable</h2>
+                                        <div class="stars flex justify-center items-center">
+                                            
+                                        </div>
+                                        <div class="price text-center">
+                                            Fresh Vegetable and fruits- No hybrid
+                                        </div>
+                                        <div class="flex justify-center">
+                                            <button>
+                                                
+                                                <span>Explore</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="food-card magic-shadow-sm">
+                                    <div class="product-image flex items-center justify-center">
+                                        {% load static %}
+                                        <img src="{% static 'images/poultry.png' %}" alt="">
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        <h2 class="text-center">Poultry & Fish Products</h2>
+                                        <div class="stars flex justify-center items-center">
+                                            
+                                        </div>
+                                        <div class="price text-center">
+                                            Fresh Poultry & Fish
+                                        </div>
+                                        <div class="flex justify-center">
+                                            <button>
+                                                
+                                                <span>Explore</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="food-card magic-shadow-sm">
+                                    <div class="product-image flex items-center justify-center">
+                                        {% load static %}
+                                        <img src="{% static 'images/hon.png' %}" alt="">
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        <h2 class="text-center">Honey & other</h2>
+                                        <div class="stars flex justify-center items-center">
+                                            
+                                        </div>
+                                        <div class="price text-center">
+                                           Fresh honey
+                                        </div>
+                                        <div class="flex justify-center">
+                                            <button>
+                                                
+                                                <span>Explore</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>--->
+                            </div>
+                        </div>
+                        <div class="text-center btn-wrapper">
+                            <button class="btn btn-secondary">View More</button>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <section class="about-meal">
                     <div class="container">
                         <h1 class="section-heading">Our Services</h1>
@@ -1224,7 +1352,7 @@ footer.copyright a{
                                 <img src="{% static 'images/group.png' %}" alt="">
                             </div>
                             <div class="flex-1">
-                                <h2>KrishiSahayak</h2>
+                                <h2>AgroAspire</h2>
                                 <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
                                     piece of
                                     classical Latin literature from 45 BC, making it over 2000 years old. Richard

@@ -10,14 +10,18 @@ urlpatterns = [
     
     path('', views.index, name='index'),
     path('home', views.home, name='home'),
-    path('signup', views.signup, name='signup'),
-    path('login', views.login, name='login'),
+   # path('signup', views.signup, name='signup'),
+    path('signup', views.handleSignup, name='handleSignup'),
+    path('login', views.handleLogin, name='handleLogin'),
+    path('logout', views.handleLogout, name='handleLogout'),
     path('FarmersCorner', views.FarmersCorner, name='FarmersCorner'),
     path('Agriculture', views.Agriculture, name='Agriculture'),
     path('foods', views.foods, name='foods'),
     path('foodsordernow', views.foodsordernow, name='foodsordernow'),
     path('shopkeepers', views.shopkeepers, name='shopkeepers'),
     path('shopupload', views.shopupload, name='shopupload'),
+    path('farmerupload', views.farmerupload, name='farmerupload'),
+    path('customerorder', views.customerorder, name='customerorder'),
     path('shopview', views.shopview, name='shopview'),
     path('CustomerCorner', views.CustomerCorner, name='CustomerCorner'),
     path('Apiculture', views.Apiculture, name='Apiculture'),
@@ -28,7 +32,9 @@ urlpatterns = [
     path('StreeKrishiMitraNGO', views.StreeKrishiMitraNGO, name='StreeKrishiMitraNGO'),
     path('chatbot', views.chatbot, name='chatbot'),
     path('NGOCorporate', views.NGOCorporate, name='NGOCorporate'),
+    path('viewcustomerorders', views.viewcustomerorders, name='viewcustomerorders'),
     path('payment', views.payment, name='payment')
+
 
 
 
